@@ -3,14 +3,14 @@
 Made to support the learning of the 50003 Models of Computation Course at Imperial College London: https://www.imperial.ac.uk/computing/current-students/courses/50003/
 
 ## Usage:
-  - make setup: installs dependendies
-  - make run csv=CSVFILE: runs the program on the specfied CSV file, and opens the resulting PDF in the default browser
-  - make clean: removes files outputted from the program
+  - <code>make setup</code> installs dependendies
+  - <code>make run csv=/path/to/csv/</code> runs the program on the specfied CSV file, and opens the resulting PDF in the default browser
+  - <code>make clean</code> removes files outputted from the program
 
 
 ## CSV File Setup:
 
-The repository contains an example file on how an input should be formatted before being passed into the program. The headings are as follows, where DEST_LABEL_1 and DEST_LABEL_2 are optional:
+The repository contains an example file on how an input should be formatted before being passed into the program. The headings are as follows, where <code>DEST_LABEL_1</code> and <code>DEST_LABEL_2</code> are optional:
 
 <code>LABEL_NUMBER, REGISTER, DEST_LABEL_1, DEST_LABEL_2</code>
 
