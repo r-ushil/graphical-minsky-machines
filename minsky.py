@@ -1,5 +1,6 @@
 import csv
 import graphviz
+import sys
 
 def update_aliases(alias_map, dest):
     #replace all redundant labels
@@ -67,11 +68,12 @@ def graph_gen(instr_dict):
 
     print(dot.source)
 
-    dot.render("output", view=True)     
+    dot.render("output", view=False)     
 
 
 def main():
-    graph_gen(import_program("example.csv"))
+    csv_path = sys.argv[1]
+    graph_gen(import_program(csv_path))
 
 
 if __name__ == "__main__":
