@@ -57,17 +57,17 @@ def graph_gen(instr_dict):
         if len(dest) == 0:
             print("Adding no edges for HALT")
         elif len(dest) == 1:
-            dot.edge(label, dest[0])
+            dot.edge(label, dest[0], arrowhead="normal")
         elif len(dest) == 2:
-            dot.edge(label, dest[0])
-            dot.edge(label, dest[1]) #needs to be double arrow
+            dot.edge(label, dest[0], arrowhead="normal")
+            dot.edge(label, dest[1], arrowhead="diamond") #needs to be double arrow
         else:
             print("ERROR IN CSV INPUT!")
             exit()
 
     print(dot.source)
 
-    dot.render("output.png", view=True)     
+    dot.render("output", view=True)     
 
 
 def main():
