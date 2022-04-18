@@ -1,4 +1,5 @@
 import csv
+import graphviz
 
 def update_aliases(alias_map, dest):
     #replace all redundant labels
@@ -44,10 +45,34 @@ def import_program(filename):
 
     return instr_dict
 
+def graph_gen(instr_dict):
+
+    dot = graphviz.Digraph()
+
+    for (label, (src, dest)) in instr_dict.items():
+
+        dot.node(label, src)
+
+        # todo!() - replace with match-case when upgrading to python 3.10
+        if len(dest) == 0:
+            print("Adding no edges for HALT")
+        elif len(dest) == 1:
+            dot.edge(label, dest[0])
+        elif len(dest) == 2:
+            dot.edge(label, dest[0])
+            dot.edge(label, dest[1]) #needs to be double arrow
+        else:
+            print("ERROR IN CSV INPUT!")
+            exit()
+
+    print(dot.source)
+
+    dot.render("output.png", view=True)     
 
 
 def main():
-    print(import_program("example.csv"))
+    graph_gen(import_program("example.csv"))
+
 
 if __name__ == "__main__":
     main()
