@@ -1,5 +1,12 @@
-from ast import Str
 import csv
+
+def update_aliases(alias_map, dest):
+    #replace all redundant labels
+    for obj in dest:
+        if obj in alias_map:
+            obj = alias_map[obj]
+
+    return (alias_map, dest)
 
 #function to import register machine csv
 def import_program(filename):
@@ -21,8 +28,7 @@ def import_program(filename):
             dest = row[2:] #[L1, L2] or [HALT], or [L4]
 
             #replace duplicate labels
-            #(alias_map, dest) = some magic to update aliases
-            #update_aliases(alias_map, dest)
+            (alias_map, dest) = update_aliases(alias_map, dest)
 
             if (src, dest) in instr_dict.values:
 
