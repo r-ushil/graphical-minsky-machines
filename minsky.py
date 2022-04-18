@@ -68,7 +68,7 @@ def graph_gen(instr_dict):
 
     print(dot.source)
 
-    dot.render("output", view=True)     
+    dot.render("output", view=False)     
 
 
 def main():
