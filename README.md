@@ -3,7 +3,7 @@
 Made to support the learning of the 50003 Models of Computation Course at Imperial College London: https://www.imperial.ac.uk/computing/current-students/courses/50003/
 
 ## Usage:
-  - <code>make setup</code> installs dependendies
+  - <code>make setup</code> installs dependencies
   - <code>make run csv=/path/to/csv/</code> runs the program on the specfied CSV file, and opens the resulting PDF in the default browser
   - <code>make clean</code> removes files outputted from the program
 
