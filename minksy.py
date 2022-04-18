@@ -30,20 +30,24 @@ def import_program(filename):
             #replace duplicate labels
             (alias_map, dest) = update_aliases(alias_map, dest)
 
-            if (src, dest) in instr_dict.values:
+            pair = (src, dest)
 
-                #get key from value - todo! find nicer way to do this
-                for l, i in instr_dict.items():
-                    if i == (src, dest):
-                        #add alias in map
-                        alias_map[label] = l
+            #find key matching pair
+            val = [key for key, instr in instr_dict.items() if instr == pair]
 
+            if val:
+                #if exists - add to alias map
+                alias_map[label] = val[0]
             else:
-                #add label-instr pair to dictionary
-                instr_dict[label] = (src, dest)
+                #add src-dest pair to dictionary
+                instr_dict[label] = pair
 
     return instr_dict
 
 
-def __main__():
-    
+
+def main():
+    print(import_program("example.csv"))
+
+if __name__ == "__main__":
+    main()
